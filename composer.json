@@ -2,6 +2,8 @@
   "name": "tms/consent",
   "type": "neos-tms",
   "description": "Simple, lightweight and customizable consent manager for Neos CMS based on Klaro!",
+  "keywords": ["neoscms", "gdpr", "eprivacy", "consent-management"],
+  "license": "MIT",
   "require": {
     "neos/neos": "^4.3 || ^5.0"
   },
