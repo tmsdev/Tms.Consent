@@ -1,0 +1,27 @@
+Tms:
+  Consent:
+    config:
+      translations:
+        de:
+          googleMaps:
+            description: 'Erlaube eingebettete Google Maps auf dieser Website'
+
+        en:
+          googleMaps:
+            description: 'Allow embedded Google Maps on this site'
+
+      apps:
+        googleMaps:
+          enabled: false
+
+          modifyHtml:
+            - pattern: '/<iframe(.*?)src="(.*?)google.com\/maps\/embed(.*?)"(.*?)>/'
+              replacement: '<iframe$1data-name="googleMaps" data-src="$2google.com/maps/embed$3"$4>'
+
+          # -----------------------------------------------------------------
+          # Klaro! Config
+          # -----------------------------------------------------------------
+          klaro:
+            name: googleMaps
+            title: 'Google Maps'
+            purposes: ['functionality']

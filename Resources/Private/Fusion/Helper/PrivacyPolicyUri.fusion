@@ -1,0 +1,20 @@
+prototype(Tms.Consent:Helper.PrivacyPolicyUri) < prototype(Neos.Fusion:Case) {
+    @context.privacyPolicy = ${Configuration.setting('Tms.Consent.config.privacyPolicy')}
+
+    nodeType {
+        condition = ${privacyPolicy && q(site).find('[instanceof ' + privacyPolicy + ']').get(0)}
+        renderer = Neos.Neos:NodeUri {
+            node = ${q(site).find('[instanceof ' + privacyPolicy + ']').get(0)}
+        }
+    }
+    nodeIdentifier {
+        condition = ${privacyPolicy && q(site).find(privacyPolicy).get(0)}
+        renderer = Neos.Neos:NodeUri {
+            node = ${q(site).find(privacyPolicy).get(0)}
+        }
+    }
+    default {
+        condition = true
+        renderer = ${privacyPolicy}
+    }
+}

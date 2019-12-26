@@ -1,0 +1,4 @@
+prototype(Tms.Consent:Helper.ModifyHtml) < prototype(Neos.Fusion:Value) {
+    @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
+    value = ${Tms.Consent.Html.modify(value, Configuration.setting('Tms.Consent.config.apps'))}
+}

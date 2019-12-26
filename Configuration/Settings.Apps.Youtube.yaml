@@ -1,0 +1,30 @@
+Tms:
+  Consent:
+    config:
+      translations:
+        de:
+          youtube:
+            description: 'Erlaube eingebettete Youtube Videos auf dieser Website'
+
+        en:
+          youtube:
+            description: 'Allow embedded Youtube videos on this site'
+
+      apps:
+        youtube:
+          enabled: false
+
+          modifyHtml:
+            - pattern: '/<iframe(.*?)src="(.*?)youtube.com\/embed\/(.*?)"(.*?)>/'
+              # Force use of youtube-nocookie.com by default
+              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
+            - pattern: '/<iframe(.*?)src="(.*?)youtube-nocookie.com\/embed\/(.*?)"(.*?)>/'
+              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
+
+          # -----------------------------------------------------------------
+          # Klaro! Config
+          # -----------------------------------------------------------------
+          klaro:
+            name: youtube
+            title: 'Youtube'
+            purposes: ['functionality']

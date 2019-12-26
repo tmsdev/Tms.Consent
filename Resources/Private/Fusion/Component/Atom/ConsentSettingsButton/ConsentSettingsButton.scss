@@ -1,0 +1,9 @@
+#tms-consent_settings-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  &.d-none {
+    display: none;
+  }
+}

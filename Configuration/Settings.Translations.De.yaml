@@ -1,0 +1,13 @@
+Tms:
+  Consent:
+    config:
+      translations:
+        de:
+          consentNotice:
+            learnMore: 'Einstellungen anpassen'
+
+          purposes:
+            necessary: 'Notwendig'
+            functionality: 'Funktionalität'
+            tracking: 'Tracking und Performance'
+            targeting: 'Anzeigen von Werbung'

@@ -1,0 +1,26 @@
+Neos:
+  Fusion:
+    defaultContext:
+      'Tms.Consent.Html': 'Tms\Consent\Eel\HtmlHelper'
+  Neos:
+    fusion:
+      autoInclude:
+        'Tms.Consent': true
+
+Tms:
+  Consent:
+    enabled: true
+
+    config:
+      # The privacy policy uri can be specified by node type, path, identifier or simply an absolute/relative link
+      # privacyPolicy: 'Vendor.Site:Document.PrivacyPolicy'
+      # privacyPolicy: '#4999814e-61c2-4ce1-ab46-c1145f2285d7'
+      # privacyPolicy: '/privacy-policy.html'
+      privacyPolicy: ''
+
+      # Find all general translations in setting files, separated by language - see 'Settings.Translations.De.yaml'
+      # App related translations should be within each app setting file - see 'Settings.Apps.Matomo.yaml'
+      translations: []
+
+      # Find individual app configurations in separated setting files
+      apps: []

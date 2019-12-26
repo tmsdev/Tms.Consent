@@ -1,0 +1,38 @@
+prototype(Tms.Consent:Helper.Config) < prototype(Neos.Fusion:RawArray) {
+
+    # You can customize the ID of the DIV element that Klaro will create
+    # when starting up. If undefined, Klaro will use 'klaro'.
+    elementID = 'klaro'
+
+    # You can customize the name of the cookie that Klaro uses for storing
+    # user consent decisions. If undefined, Klaro will use 'klaro'.
+    cookieName = 'klaro'
+
+    # You can also set a custom expiration time for the Klaro cookie.
+    # By default, it will expire after 120 days.
+    cookieExpiresAfterDays = 365
+
+    # Put a link to your privacy policy here (relative or absolute).
+    privacyPolicy = Tms.Consent:Helper.PrivacyPolicyUri
+
+    # Defines the default state for applications (true=enabled by default).
+    default = true
+
+    # If "mustConsent" is set to true, Klaro will directly display the consent
+    # manager modal and not allow the user to close it before having actively
+    # consented or declines the use of third-party apps.
+    mustConsent = false
+
+    # You can define the UI language directly here. If undefined, Klaro will
+    # use the value given in the global "lang" variable. If that does
+    # not exist, it will use the value given in the "lang" attribute of your
+    # HTML tag. If that also doesn't exist, it will use 'en'.
+    #lang = 'en'
+
+    translations = ${Configuration.setting('Tms.Consent.config.translations')}
+    apps = ${Configuration.setting('Tms.Consent.config.apps')}
+    apps.@process.filter = ${Array.reduce(value, (apps, app) => app.enabled != false ? Array.push(apps, app.klaro) : apps, [])}
+
+    @process.toJson = ${Json.stringify(value, ['JSON_UNESCAPED_SLASHES'])}
+    @process.wrap = ${'<script>var klaroConfig=' + value +  '</script>'}
+}

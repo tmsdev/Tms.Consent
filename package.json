@@ -1,0 +1,30 @@
+{
+  "name": "tms.consent",
+  "version": "1.0.0",
+  "description": "Simple, lightweight and customizable consent manager for Neos CMS based on Klaro!",
+  "main": "Resources/Public/JavaScript/main.bundle.js",
+  "scripts": {
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmsdev/Tms.Consent.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmsdev/Tms.Consent/issues"
+  },
+  "homepage": "https://github.com/tmsdev/Tms.Consent#readme",
+  "devDependencies": {
+    "css-loader": "^3.4.0",
+    "klaro": "^0.2.12",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.0",
+    "terser": "^4.4.3",
+    "terser-webpack-plugin": "^2.3.1",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}

@@ -1,0 +1,36 @@
+prototype(Neos.Neos:Page) {
+    head.stylesheets {
+        klaro = Neos.Fusion:Tag {
+            @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
+            @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+            tagName = 'link'
+            attributes {
+                rel = 'stylesheet'
+                href = Neos.Fusion:ResourceUri {
+                    path = 'resource://Tms.Consent/Public/Styles/main.css'
+                }
+            }
+        }
+    }
+    body {
+        javascripts.klaro = Neos.Fusion:Array {
+            @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
+            @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
+            @position = 'end 99999'
+
+            config = Tms.Consent:Helper.Config
+            main = Neos.Fusion:Tag {
+                tagName = 'script'
+                attributes {
+                    defer = true
+                    src = Neos.Fusion:ResourceUri {
+                        path = 'resource://Tms.Consent/Public/JavaScript/main.bundle.js'
+                    }
+                }
+            }
+        }
+        consentSettingsButton = Tms.Consent:Component.Atom.ConsentSettingsButton
+        @process.appendConsentSettingsButton = ${value + this.consentSettingsButton}
+    }
+    @process.consentModifyHtml = Tms.Consent:Helper.ModifyHtml
+}
