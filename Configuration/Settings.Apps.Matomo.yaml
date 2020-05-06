@@ -14,8 +14,8 @@ Tms:
 
           # Search & replace the resulting HTML by these patterns
           modifyHtml:
-            - pattern: '/<script(.*?)type="text\/javascript"(.*?)>([\s\S]*?)<\/script>/'
-              replacement: '<script$1type="opt-in" data-name="matomo" data-type="text/javascript"$2>$3</script>'
+            - pattern: '/<script(.*?)(type="(?:application|text)\/javascript")(.*?)>((?=(piwik))[\s\S]*?)<\/script>/'
+              replacement: '<script$1type="opt-in" data-name="matomo" data-type="text/javascript"$3>$4</script>'
 
           # -----------------------------------------------------------------
           # Klaro! Config
@@ -27,14 +27,14 @@ Tms:
             # Overwrites global "default" setting.
             # We recommend leaving this to "false" for apps that collect
             # personal information.
-            default: true
+            default: false
 
             # The title of you app as listed in the consent modal.
             title: 'Matomo/Piwik'
 
             # The purpose(s) of this app. Will be listed on the consent notice.
             # Do not forget to add translations for all purposes you list here.
-            purposes: ['tracking']
+            purposes: ['analytics']
 
             # A list of regex expressions or strings giving the names of
             # cookies set by this app. If the user withdraws consent for a

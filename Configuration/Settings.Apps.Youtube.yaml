@@ -26,5 +26,6 @@ Tms:
           # -----------------------------------------------------------------
           klaro:
             name: youtube
+            default: false
             title: 'Youtube'
             purposes: ['functionality']

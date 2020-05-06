@@ -23,5 +23,6 @@ Tms:
           # -----------------------------------------------------------------
           klaro:
             name: googleMaps
+            default: false
             title: 'Google Maps'
             purposes: ['functionality']

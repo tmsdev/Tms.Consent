@@ -4,6 +4,10 @@ prototype(Tms.Consent:Helper.Config) < prototype(Neos.Fusion:RawArray) {
     # when starting up. If undefined, Klaro will use 'klaro'.
     elementID = 'klaro'
 
+    # How Klaro should store the user's preferences. It can be either 'cookie'
+    # (the default) or 'localStorage'.
+    storageMethod = 'localStorage'
+
     # You can customize the name of the cookie that Klaro uses for storing
     # user consent decisions. If undefined, Klaro will use 'klaro'.
     cookieName = 'klaro'
@@ -22,6 +26,13 @@ prototype(Tms.Consent:Helper.Config) < prototype(Neos.Fusion:RawArray) {
     # manager modal and not allow the user to close it before having actively
     # consented or declines the use of third-party apps.
     mustConsent = false
+
+    # Show "accept all" to accept all apps instead of "ok" that only accepts
+    # required and "default: true" apps
+    acceptAll = true
+
+    # Do not show "decline" button in cookie notice
+    hideDeclineAll = false
 
     # You can define the UI language directly here. If undefined, Klaro will
     # use the value given in the global "lang" variable. If that does

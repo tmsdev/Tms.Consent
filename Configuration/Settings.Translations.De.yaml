@@ -6,8 +6,11 @@ Tms:
           consentNotice:
             learnMore: 'Einstellungen anpassen'
 
+          acceptAll: 'Alle akzeptieren'
+          acceptSelected: 'Auswahl speichern'
+
           purposes:
-            necessary: 'Notwendig'
+            performance: 'Sicherheit & Performance'
             functionality: 'Funktionalität'
-            tracking: 'Tracking und Performance'
+            analytics: 'Statistiken'
             targeting: 'Anzeigen von Werbung'

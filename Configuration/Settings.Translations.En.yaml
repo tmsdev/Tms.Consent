@@ -4,10 +4,13 @@ Tms:
       translations:
         en:
           consentNotice:
-            learnMore: 'Change settings'
+            learnMore: 'Customize settings'
+
+          acceptAll: 'Accept all'
+          acceptSelected: 'Accept selected'
 
           purposes:
-            necessary: 'Strictly necessary'
+            performance: 'Security & Performance'
             functionality: 'Functionality'
-            tracking: 'Tracking and Performance'
+            analytics: 'Analytics'
             targeting: 'Targeting and Advertising'

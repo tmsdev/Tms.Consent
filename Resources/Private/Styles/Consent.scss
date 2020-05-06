@@ -1,1 +1,7 @@
 @import "../Fusion/Component/Atom/ConsentSettingsButton/ConsentSettingsButton";
+
+@media (min-width: 990px) {
+    .klaro .cookie-notice {
+        max-width: 450px !important;
+    }
+}
