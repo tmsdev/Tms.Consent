@@ -4,11 +4,11 @@ Tms:
       translations:
         de:
           cloudflare:
-            description: 'Schützt uns vor Angreifern und hilft uns dabei unsere Inhalte weltweit schnell zu verteilen.'
+            description: 'Schützt uns vor Angreifern und hilft dabei unsere Inhalte weltweit schnell zu verteilen.'
 
         en:
           cloudflare:
-            description: 'Protects us from attackers and helps us to distribute our content quickly worldwide.'
+            description: 'Protects us from attackers and helps to distribute our content quickly worldwide.'
 
       apps:
         cloudflare:

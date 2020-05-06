@@ -1,6 +1,6 @@
 prototype(Neos.Neos:Page) {
     head.stylesheets {
-        klaro = Neos.Fusion:Tag {
+        tmsConsent = Neos.Fusion:Tag {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
             @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
             tagName = 'link'
@@ -13,7 +13,7 @@ prototype(Neos.Neos:Page) {
         }
     }
     body {
-        javascripts.klaro = Neos.Fusion:Array {
+        javascripts.tmsConsent = Neos.Fusion:Array {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
             @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
             @position = 'end 99999'
@@ -29,8 +29,7 @@ prototype(Neos.Neos:Page) {
                 }
             }
         }
-        consentSettingsButton = Tms.Consent:Component.Atom.ConsentSettingsButton
-        @process.appendConsentSettingsButton = ${value + this.consentSettingsButton}
+        tmsConsentSettingsButton = Tms.Consent:Component.Atom.ConsentSettingsButton
+        @process.appendTmsConsentSettingsButton = ${value + this.tmsConsentSettingsButton}
     }
-    @process.consentModifyHtml = Tms.Consent:Helper.ModifyHtml
 }

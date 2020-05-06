@@ -1,0 +1,16 @@
+prototype(Tms.Consent:Helper.ConsentAttributes) < prototype(Neos.Fusion:Component) {
+    @if.consentEnabled = ${Configuration.setting('Tms.Consent.enabled')}
+    @if.appConfiguredAndEnabled = ${this.name && Configuration.setting('Tms.Consent.config.apps.' + this.name + '.enabled')}
+
+    # The app name used in your yaml configuration
+    name = ''
+    type = null
+    src = null
+
+    renderer = Neos.Fusion:Attributes {
+        type = 'text/plain'
+        data-name = ${props.name}
+        data-type = ${props.type}
+        data-src = ${props.src}
+    }
+}

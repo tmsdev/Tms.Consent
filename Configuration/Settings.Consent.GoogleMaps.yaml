@@ -14,10 +14,6 @@ Tms:
         googleMaps:
           enabled: false
 
-          modifyHtml:
-            - pattern: '/<iframe(.*?)src="(.*?)google.com\/maps\/embed(.*?)"(.*?)>/'
-              replacement: '<iframe$1data-name="googleMaps" data-src="$2google.com/maps/embed$3"$4>'
-
           # -----------------------------------------------------------------
           # Klaro! Config
           # -----------------------------------------------------------------

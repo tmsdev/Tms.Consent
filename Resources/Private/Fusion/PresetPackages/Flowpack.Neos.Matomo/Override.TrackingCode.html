@@ -1,0 +1,15 @@
+<!-- Matomo -->
+<script{consentAttributes -> f:format.raw()}>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="{protocol}://{host}/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', {idSite}]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<f:if condition="{consentEnabled} != true"><noscript><p><img src="{protocol}://{host}/piwik.php?idsite={idSite}" style="border:0;" alt="" /></p></noscript></f:if>
+<!-- End Matomo Code -->

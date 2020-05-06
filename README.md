@@ -20,11 +20,15 @@ composer require tms/consent
 
 ## Usage
 
+### Step 1: App configuration via `YAML` settings
+
 This package includes default consent management settings for these apps
 
+* Cloudflare
 * Matomo
-* Youtube
+* Google Analytics
 * Google Maps
+* Youtube
 
 ```yaml
 # Example configuration
@@ -42,63 +46,43 @@ Tms:
           enabled: true
 ```
 
-## Extend apps
+#### Extend your apps
 
-Add your own apps as needed
+Simply extend the `YAML` settings within your Neos package.
 
 ```yaml
 Tms:
   Consent:
     config:
       apps:
-        yourThirdParty:
+        yourAppName:
           enabled: true
 
           # -----------------------------------------------------------------
           # Klaro! Config
           # -----------------------------------------------------------------
           klaro:
-            name: yourThirdPartyApp
-            title: 'Your Third Party App'
-            description: 'Short description, why this app is needed...'
+            name: yourAppName
+            title: 'Your App Title'
+            description: 'Short description, why your website use the app...'
             purposes: ['functionality']
 ```
 
 Think your app configuration is useful for others too?
 Don't hesitate to submit a PR. All the app related configuration should be combined in one settings
-file named like `Settings.Apps.YourThirdPartyApp.yaml`.
+file named like `Settings.Consent.YourAppName.yaml`.
 
-## Modify HTML
+### Step 2: Modify HTML
 
 In order to control your configured apps (e.g. to stop loading and/or execution without consent) it is necessary to
 modify the resulting HTML of your webpages.
 
-**1. Option: Adjust HTML attributes manually**
+This can be achieved by simply replacing some attributes - see https://github.com/KIProtect/klaro#managing-third-party-appstrackers
 
-see https://github.com/KIProtect/klaro#managing-third-party-appstrackers
+We try to provide preconfigured solutions for some common Neos packages, please have a look at [`/Resources/Private/Fusion/PresetPackages`](https://github.com/tmsdev/Tms.Consent/tree/master/Resources/Private/Fusion/PresetPackages)
+what we've already covered. Your package is missing? Submit a PR, if you think the app configuration could be useful for others.
 
-**2. Option: Replace HTML attributes automatically by patterns** 
-
-We added a processor to `Neos.Neos:Page` that will search and replace the given HTML by app patterns.
-
-```yaml
-# Youtube example
-Tms:
-  Consent:
-    config:
-      apps:
-        youtube:
-
-          # Search & replace the resulting HTML by these patterns
-          modifyHtml:
-            - pattern: '/<iframe(.*?)src="(.*?)youtube.com\/embed\/(.*?)"(.*?)>/'
-              # Force use of youtube-nocookie.com by default
-              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
-            - pattern: '/<iframe(.*?)src="(.*?)youtube-nocookie.com\/embed\/(.*?)"(.*?)>/'
-              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
-```
-
-## Verify
+### Step 3: Verify
 
 Check your site - have you blocked all your critical apps?
 
@@ -120,6 +104,6 @@ Any feedback, pull request or other contribution is very welcome!
 
 ## Acknowledgments
 
-Development sponsored by [tms.development - online marketing agency](https://www.tms-development.de/)
+Development sponsored by [tms.development - Online Marketing and Neos CMS Agency](https://www.tms-development.de/)
 
 Webpack config inspired by https://github.com/neos/redirecthandler-ui

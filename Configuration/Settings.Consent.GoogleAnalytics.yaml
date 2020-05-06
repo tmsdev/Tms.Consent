@@ -1,0 +1,24 @@
+Tms:
+  Consent:
+    config:
+      translations:
+        de:
+          googleAnalytics:
+            description: 'Ermöglicht uns eine anonymisierte Auswertung der Website Nutzung (z.B. Seitenaufrufe, Kanäle, Endgeräte, Bildschirmauflösungen, etc.)'
+
+        en:
+          googleAnalytics:
+            description: 'Allows us to analyse website usage anonymously (e.g. pageviews, channels, devices, screen resolutions, etc.)'
+
+      apps:
+        googleAnalytics:
+          enabled: false
+
+          # -----------------------------------------------------------------
+          # Klaro! Config
+          # -----------------------------------------------------------------
+          klaro:
+            name: googleAnalytics
+            default: false
+            title: 'Google Analytics'
+            purposes: ['analytics']

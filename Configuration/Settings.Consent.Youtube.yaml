@@ -14,13 +14,6 @@ Tms:
         youtube:
           enabled: false
 
-          modifyHtml:
-            - pattern: '/<iframe(.*?)src="(.*?)youtube.com\/embed\/(.*?)"(.*?)>/'
-              # Force use of youtube-nocookie.com by default
-              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
-            - pattern: '/<iframe(.*?)src="(.*?)youtube-nocookie.com\/embed\/(.*?)"(.*?)>/'
-              replacement: '<iframe$1data-name="youtube" data-src="$2youtube-nocookie.com/embed/$3"$4>'
-
           # -----------------------------------------------------------------
           # Klaro! Config
           # -----------------------------------------------------------------

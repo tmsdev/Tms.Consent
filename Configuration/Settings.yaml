@@ -1,7 +1,4 @@
 Neos:
-  Fusion:
-    defaultContext:
-      'Tms.Consent.Html': 'Tms\Consent\Eel\HtmlHelper'
   Neos:
     fusion:
       autoInclude:

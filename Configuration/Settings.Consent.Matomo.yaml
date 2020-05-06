@@ -4,18 +4,17 @@ Tms:
       translations:
         de:
           matomo:
-            description: 'Sammeln von Besucherstatistiken'
+            description: 'Ermöglicht uns eine anonymisierte Auswertung der Website Nutzung (z.B. Seitenaufrufe, Kanäle, Endgeräte, Bildschirmauflösungen, etc.)'
+
+        en:
+          matomo:
+            description: 'Allows us to analyse website usage anonymously (e.g. pageviews, channels, devices, screen resolutions, etc.)'
 
       apps:
         matomo:
           # Each app must include the 'enabled' key and should be disabled
           # by default within this package
           enabled: false
-
-          # Search & replace the resulting HTML by these patterns
-          modifyHtml:
-            - pattern: '/<script(.*?)(type="(?:application|text)\/javascript")(.*?)>((?=(piwik))[\s\S]*?)<\/script>/'
-              replacement: '<script$1type="opt-in" data-name="matomo" data-type="text/javascript"$3>$4</script>'
 
           # -----------------------------------------------------------------
           # Klaro! Config

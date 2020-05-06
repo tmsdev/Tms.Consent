@@ -1,0 +1,9 @@
+prototype(Flowpack.Neos.Matomo:TrackingCode) {
+    templatePath = 'resource://Tms.Consent/Private/Fusion/PresetPackages/Flowpack.Neos.Matomo/Override.TrackingCode.html'
+    consentAttributes = Tms.Consent:Helper.ConsentAttributes {
+        name = 'matomo'
+        type = 'text/javascript'
+    }
+    # Used to disable the <noscript> fallback if consent is enabled
+    consentEnabled = ${Configuration.setting('Tms.Consent.config.apps.matomo.enabled')}
+}
