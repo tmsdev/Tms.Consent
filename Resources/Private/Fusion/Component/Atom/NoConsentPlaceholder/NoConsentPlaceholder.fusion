@@ -5,10 +5,14 @@ prototype(Tms.Consent:Component.Atom.NoConsentPlaceholder) < prototype(Neos.Fusi
     appName = ''
     imageUri = ''
 
-    # TODO: translate
+    i18nContentBlocked = ${Translation.translate('noConsentPlaceholder.contentBlocked', 'content blocked', [], null, 'Tms.Consent')}
+    i18nReviewSettings = ${Translation.translate('noConsentPlaceholder.reviewSettings', 'review your consent settings', [], null, 'Tms.Consent')}
+
     renderer = afx`
         <div class="tms-consent_no-consent-placeholder" data-name={props.appName}>
-            <p><span data-klaro-app-title={props.appName}>{props.appName}</span> content blocked - <a href="#" onclick="return klaro.show();">review your consent settings</a></p>
+            <p>
+                <span data-klaro-app-title={props.appName}>{props.appName}</span> {props.i18nContentBlocked} - <a href="#" onclick="return klaro.show();">{props.i18nReviewSettings}</a>
+            </p>
             <img @if.hasImage={props.imageUri} src={props.imageUri} alt="" loading="lazy" />
         </div>
     `

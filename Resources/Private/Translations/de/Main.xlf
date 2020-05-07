@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xlifNeos.Fusion:document:1.2">
+	<file original="" product-name="Tms.Consent" source-language="de" datatype="plaintext">
+		<body>
+			<trans-unit id="consentSettingsButton" xml:space="preserve">
+				<source>Datenschutz Einstellungen</source>
+			</trans-unit>
+            <trans-unit id="noConsentPlaceholder.contentBlocked" xml:space="preserve">
+				<source>Inhalte blockiert</source>
+			</trans-unit>
+            <trans-unit id="noConsentPlaceholder.reviewSettings" xml:space="preserve">
+				<source>jetzt Datenschutz Einstellungen anpassen</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
