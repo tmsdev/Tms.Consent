@@ -22,3 +22,4 @@ Tms:
             default: false
             title: 'Google Maps'
             purposes: ['functionality']
+            callback: toggleNoConsentPlaceholders

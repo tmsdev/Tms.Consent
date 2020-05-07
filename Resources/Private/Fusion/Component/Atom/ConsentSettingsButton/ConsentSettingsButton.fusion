@@ -1,5 +1,5 @@
 prototype(Tms.Consent:Component.Atom.ConsentSettingsButton) < prototype(Neos.Fusion:Component) {
-    # TODO: translate button text
+    # TODO: translate
     renderer = afx`
         <button id="tms-consent_settings-button" class="d-none" onclick="return klaro.show();">Consent settings</button>
     `

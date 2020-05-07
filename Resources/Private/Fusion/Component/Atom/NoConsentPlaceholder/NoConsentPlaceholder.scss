@@ -1,0 +1,22 @@
+.tms-consent_no-consent-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: black;
+    color: white;
+    padding: 2rem;
+    overflow: hidden;
+
+    display: none;
+    &.consent-needed {
+        display: block;
+    }
+
+    img {
+        max-width: 66%;
+        height: auto;
+    }
+}

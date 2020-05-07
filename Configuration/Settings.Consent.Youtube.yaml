@@ -22,3 +22,4 @@ Tms:
             default: false
             title: 'Youtube'
             purposes: ['functionality']
+            callback: toggleNoConsentPlaceholders

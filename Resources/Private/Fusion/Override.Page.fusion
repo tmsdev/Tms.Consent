@@ -2,7 +2,6 @@ prototype(Neos.Neos:Page) {
     head.stylesheets {
         tmsConsent = Neos.Fusion:Tag {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
-            @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
             tagName = 'link'
             attributes {
                 rel = 'stylesheet'
@@ -15,16 +14,24 @@ prototype(Neos.Neos:Page) {
     body {
         javascripts.tmsConsent = Neos.Fusion:Array {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
-            @if.inLiveWorkspace = ${node.context.workspaceName == 'live'}
             @position = 'end 99999'
 
             config = Tms.Consent:Helper.Config
-            main = Neos.Fusion:Tag {
+            bundle = Neos.Fusion:Tag {
                 tagName = 'script'
                 attributes {
                     defer = true
                     src = Neos.Fusion:ResourceUri {
                         path = 'resource://Tms.Consent/Public/JavaScript/main.bundle.js'
+                    }
+                }
+            }
+            noBundle = Neos.Fusion:Tag {
+                tagName = 'script'
+                attributes {
+                    defer = true
+                    src = Neos.Fusion:ResourceUri {
+                        path = 'resource://Tms.Consent/Public/JavaScript/NoConsentPlaceholder.js'
                     }
                 }
             }

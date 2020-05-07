@@ -1,0 +1,15 @@
+prototype(Tms.Consent:Component.Atom.NoConsentPlaceholder) < prototype(Neos.Fusion:Component) {
+    @if.consentEnabled = ${Configuration.setting('Tms.Consent.enabled')}
+    @if.appConfiguredAndEnabled = ${this.appName && Configuration.setting('Tms.Consent.config.apps.' + this.appName + '.enabled')}
+
+    appName = ''
+    imageUri = ''
+
+    # TODO: translate
+    renderer = afx`
+        <div class="tms-consent_no-consent-placeholder" data-name={props.appName}>
+            <p><span data-klaro-app-title={props.appName}>{props.appName}</span> content blocked - <a href="#" onclick="return klaro.show();">review your consent settings</a></p>
+            <img @if.hasImage={props.imageUri} src={props.imageUri} alt="" loading="lazy" />
+        </div>
+    `
+}

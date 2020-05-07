@@ -45,5 +45,9 @@ prototype(Tms.Consent:Helper.Config) < prototype(Neos.Fusion:RawArray) {
     apps.@process.filter = ${Array.reduce(value, (apps, app) => app.enabled != false ? Array.push(apps, app.klaro) : apps, [])}
 
     @process.toJson = ${Json.stringify(value, ['JSON_UNESCAPED_SLASHES'])}
+
+    # TODO: needs better implementation / since we do the app configration via YAML, this workaround is needed to use Klaro!'s callback function feature
+    @process.setCallbackFunction = ${String.replace(value, '"toggleNoConsentPlaceholders"', 'function(consent, app) { toggleNoConsentPlaceholders(consent, app); }')}
+
     @process.wrap = ${'<script>var klaroConfig=' + value +  '</script>'}
 }
