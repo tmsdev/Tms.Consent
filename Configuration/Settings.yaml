@@ -1,4 +1,7 @@
 Neos:
+  Fusion:
+    defaultContext:
+      'Tms.Consent.Klaro': 'Tms\Consent\Eel\Helper\KlaroHelper'
   Neos:
     fusion:
       autoInclude:

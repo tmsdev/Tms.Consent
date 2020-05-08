@@ -42,7 +42,7 @@ prototype(Tms.Consent:Klaro.Config) < prototype(Neos.Fusion:RawArray) {
 
     translations = ${Configuration.setting('Tms.Consent.config.translations')}
     apps = ${Configuration.setting('Tms.Consent.config.apps')}
-    apps.@process.filter = ${Array.reduce(value, (apps, app) => app.enabled != false ? Array.push(apps, app.klaro) : apps, [])}
+    apps.@process.build = ${Tms.Consent.Klaro.buildAppsConfig(value)}
 
     @process.toJson = ${Json.stringify(value, ['JSON_UNESCAPED_SLASHES'])}
 

@@ -80,7 +80,7 @@ $green2: $primary;
         @import '../klaro/switch.scss';
 
         .cm-app-input.required:checked + .cm-app-label .slider {
-            opacity: .65;
+            opacity: .25;
         }
 
         font-size: $small-font-size;
@@ -277,7 +277,7 @@ $green2: $primary;
 
                         span.cm-app-title {
                             font-weight: 600;
-                            padding-top: 5px;
+                            padding-top: 4px;
                         }
 
                         span.cm-opt-out, span.cm-required {
@@ -340,5 +340,9 @@ $green2: $primary;
 
     .cookie-notice-hidden {
         display: none !important;
+    }
+
+    label.cm-app-label {
+        margin-bottom: .25rem;
     }
 }
