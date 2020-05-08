@@ -29,7 +29,7 @@ Tms:
             default: false
 
             # The title of you app as listed in the consent modal.
-            title: 'Matomo/Piwik'
+            title: 'Matomo / Piwik'
 
             # The purpose(s) of this app. Will be listed on the consent notice.
             # Do not forget to add translations for all purposes you list here.
