@@ -1,12 +1,12 @@
 $box-shadow: none;
 //$border-radius: 4px;
-$border-dark: $border-width solid $dark;
-$font-color-dark: $light;
-$font-color-dark-deemphasized: rgba($light, .5);
+$border-dark: $border-width solid darken($dark, 5%);
+$font-color-dark: $white;
+$font-color-dark-deemphasized: rgba($white, .5);
 $bg-dark: $dark;
 $blue1: $primary;
 $green1: $primary;
-$green2: black;
+$green2: $primary;
 
 @mixin bootstrap-btn() {
     display: inline-block;
@@ -78,6 +78,10 @@ $green2: black;
     .cookie-modal, .cookie-notice {
 
         @import '../klaro/switch.scss';
+
+        .cm-app-input.required:checked + .cm-app-label .slider {
+            opacity: .65;
+        }
 
         font-size: $small-font-size;
 
