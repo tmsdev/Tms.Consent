@@ -4,9 +4,9 @@ Tms:
       translations:
         en:
           consentNotice:
-            learnMore: 'Customize settings'
+            learnMore: 'Customize'
 
-          acceptAll: 'Accept all'
+          acceptAll: 'Accept all applications'
           acceptSelected: 'Accept selected'
 
           purposes:

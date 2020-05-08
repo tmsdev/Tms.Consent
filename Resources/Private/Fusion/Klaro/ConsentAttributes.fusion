@@ -1,4 +1,4 @@
-prototype(Tms.Consent:Helper.ConsentAttributes) < prototype(Neos.Fusion:Component) {
+prototype(Tms.Consent:Klaro.ConsentAttributes) < prototype(Neos.Fusion:Component) {
     @if.consentEnabled = ${Configuration.setting('Tms.Consent.enabled')}
     @if.appConfiguredAndEnabled = ${this.name && Configuration.setting('Tms.Consent.config.apps.' + this.name + '.enabled')}
 

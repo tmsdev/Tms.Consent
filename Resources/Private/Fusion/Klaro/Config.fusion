@@ -1,4 +1,4 @@
-prototype(Tms.Consent:Helper.Config) < prototype(Neos.Fusion:RawArray) {
+prototype(Tms.Consent:Klaro.Config) < prototype(Neos.Fusion:RawArray) {
 
     # You can customize the ID of the DIV element that Klaro will create
     # when starting up. If undefined, Klaro will use 'klaro'.

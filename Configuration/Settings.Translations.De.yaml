@@ -4,9 +4,9 @@ Tms:
       translations:
         de:
           consentNotice:
-            learnMore: 'Einstellungen anpassen'
+            learnMore: 'Anpassen'
 
-          acceptAll: 'Alle akzeptieren'
+          acceptAll: 'Alle Anwendungen akzeptieren'
           acceptSelected: 'Auswahl speichern'
 
           purposes:

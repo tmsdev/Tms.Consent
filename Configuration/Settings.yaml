@@ -8,6 +8,13 @@ Tms:
   Consent:
     enabled: true
 
+    autoInclude:
+      config: true
+      scripts: true
+      styles: true
+
+    enableStickyConsentSettingsButton: true
+
     config:
       # The privacy policy uri can be specified by node type, path, identifier or simply an absolute/relative link
       # privacyPolicy: 'Vendor.Site:Document.PrivacyPolicy'

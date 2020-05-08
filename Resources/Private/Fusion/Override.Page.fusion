@@ -2,6 +2,7 @@ prototype(Neos.Neos:Page) {
     head.stylesheets {
         tmsConsent = Neos.Fusion:Tag {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
+            @if.autoIncludeStyles = ${Configuration.setting('Tms.Consent.autoInclude.styles')}
             tagName = 'link'
             attributes {
                 rel = 'stylesheet'
@@ -16,8 +17,11 @@ prototype(Neos.Neos:Page) {
             @if.enabled = ${Configuration.setting('Tms.Consent.enabled')}
             @position = 'end 99999'
 
-            config = Tms.Consent:Helper.Config
+            config = Tms.Consent:Klaro.Config
+            config.@if.autoIncludeConfig = ${Configuration.setting('Tms.Consent.autoInclude.config')}
+
             bundle = Neos.Fusion:Tag {
+                @if.autoIncludeScripts = ${Configuration.setting('Tms.Consent.autoInclude.scripts')}
                 tagName = 'script'
                 attributes {
                     defer = true
@@ -26,7 +30,9 @@ prototype(Neos.Neos:Page) {
                     }
                 }
             }
+
             noBundle = Neos.Fusion:Tag {
+                @if.autoIncludeScripts = ${Configuration.setting('Tms.Consent.autoInclude.scripts')}
                 tagName = 'script'
                 attributes {
                     defer = true
@@ -36,7 +42,9 @@ prototype(Neos.Neos:Page) {
                 }
             }
         }
+
         tmsConsentSettingsButton = Tms.Consent:Component.Atom.ConsentSettingsButton
         @process.appendTmsConsentSettingsButton = ${value + this.tmsConsentSettingsButton}
+        @process.appendTmsConsentSettingsButton.@if.enabled = ${Configuration.setting('Tms.Consent.enableStickyConsentSettingsButton')}
     }
 }

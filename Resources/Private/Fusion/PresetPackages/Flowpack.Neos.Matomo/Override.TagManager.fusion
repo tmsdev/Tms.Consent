@@ -1,5 +1,5 @@
 prototype(Flowpack.Neos.Matomo:TagManager) {
-    attributes = Tms.Consent:Helper.ConsentAttributes {
+    attributes = Tms.Consent:Klaro.ConsentAttributes {
         name = 'matomo'
         type = 'text/javascript'
     }
