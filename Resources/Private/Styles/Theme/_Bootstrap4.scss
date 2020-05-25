@@ -1,12 +1,12 @@
-$box-shadow: none;
+$box-shadow: none !default;
 //$border-radius: 4px;
-$border-dark: $border-width solid darken($dark, 5%);
-$font-color-dark: $white;
-$font-color-dark-deemphasized: rgba($white, .5);
-$bg-dark: $dark;
-$blue1: $primary;
-$green1: $primary;
-$green2: $primary;
+$border-dark: $border-width solid darken($dark, 5%) !default;
+$font-color-dark: $white !default;
+$font-color-dark-deemphasized: rgba($white, .5) !default;
+$bg-dark: $dark !default;
+$blue1: $primary !default;
+$green1: $primary !default;
+$green2: $primary !default;
 
 @mixin bootstrap-btn() {
     display: inline-block;
