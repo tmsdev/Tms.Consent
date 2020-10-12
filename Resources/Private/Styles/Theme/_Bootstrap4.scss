@@ -1,9 +1,10 @@
 $box-shadow: none !default;
-//$border-radius: 4px;
-$border-dark: $border-width solid darken($dark, 5%) !default;
-$font-color-dark: $white !default;
-$font-color-dark-deemphasized: rgba($white, .5) !default;
-$bg-dark: $dark !default;
+
+$cm-border: $border-width solid darken($dark, 5%) !default;
+$cm-font-color: $white !default;
+$cm-font-color-deemphasized: rgba($white, .5) !default;
+$cm-background: $dark !default;
+
 $blue1: $primary !default;
 $green1: $primary !default;
 $green2: $primary !default;
@@ -96,7 +97,7 @@ $green2: $primary !default;
 
         p, strong, h1, h2, ul, li {
             font-family: inherit;
-            color: $font-color-dark;
+            color: $cm-font-color;
         }
 
         p, h1, h2, ul, li {
@@ -179,14 +180,14 @@ $green2: $primary !default;
 
             position: fixed;
             overflow: auto;
-            background: $bg-dark;
-            color: $font-color-dark;
+            background: $cm-background;
+            color: $cm-font-color;
 
             .hide   {
                 border: none;
                 background: none;
                 svg {
-                    stroke: $font-color-dark;
+                    stroke: $cm-font-color;
                 }
                 position: absolute;
                 top: 20px;
@@ -199,7 +200,7 @@ $green2: $primary !default;
 
             .cm-footer {
                 padding: 1.5em;
-                border-top: $border-dark;
+                border-top: $cm-border;
 
                 &-buttons {
                     &::before,
@@ -219,7 +220,7 @@ $green2: $primary !default;
                     text-align: center;
 
                     a {
-                        color: $font-color-dark-deemphasized;
+                        color: $cm-font-color-deemphasized;
                     }
                 }
             }
@@ -227,7 +228,7 @@ $green2: $primary !default;
             .cm-header {
                 padding: 1.5em;
                 padding-right: 24px;
-                border-bottom: $border-dark;
+                border-bottom: $cm-border;
                 h1 {
                     margin: 0;
                     font-size: 2em;
@@ -267,11 +268,11 @@ $green2: $primary !default;
                         }
 
                         p.purposes {
-                            color: $font-color-dark-deemphasized;
+                            color: $cm-font-color-deemphasized;
                         }
 
                         &.cm-toggle-all {
-                            border-top: $border-dark;
+                            border-top: $cm-border;
                             padding-top: 1em;
                         }
 
@@ -282,7 +283,7 @@ $green2: $primary !default;
 
                         span.cm-opt-out, span.cm-required {
                             padding-left: 0.2em;
-                            color: $font-color-dark-deemphasized;
+                            color: $cm-font-color-deemphasized;
                         }
                     }
                 }
@@ -292,7 +293,7 @@ $green2: $primary !default;
 
     .cookie-notice {
 
-        background: $bg-dark;
+        background: $cm-background;
         z-index: 999;
 
         position: fixed;
