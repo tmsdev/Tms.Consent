@@ -1,5 +1,233 @@
-@import '~klaro/src/scss/vars';
+/*
+Copy from klaro/src/scss/vars.scss
+*/
 
+/* Border, shadows, ... */
+$cm-box-shadow-dark-md: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 5px 5px 10px 0 rgba(0, 0, 0, 0.19) !default;
+$cm-box-shadow-light-sm: 0 2px 5px 0 rgba(0, 0, 0, 0.11) !default;
+$cm-box-shadow-dark-sm: 0 2px 5px 0 rgba(0, 0, 0, 0.33) !default;
+
+$cm-border-radius: 4px !default;
+$cm-border-dark: 1px solid #555 !default;
+
+/* Colors */
+$cm-font-color-dark: #eee !default;
+$cm-tab-color: #2581c4 !default;
+$cm-font-color-dark-deemphasized: #999 !default;
+$cm-bg-dark: #333 !default;
+$cm-gray-medium: #aaa !default;
+$cm-gray-light: #eee !default;
+$cm-white: #fff !default;
+
+$cm-blue1: #2581c4 !default;
+$cm-blue2: scale-color($cm-blue1, $lightness: 20%) !default;
+$cm-blue3: scale-color($cm-blue2, $lightness: 20%) !default;
+$cm-blue4: scale-color($cm-blue3, $lightness: 20%) !default;
+
+$cm-green1: #1a936f !default;
+$cm-green2: scale-color($cm-green1, $lightness: 20%) !default;
+$cm-green3: scale-color($cm-green2, $lightness: 20%) !default;
+$cm-green4: scale-color($cm-green3, $lightness: 20%) !default;
+
+$cm-red1: #da2c43 !default;
+$cm-red2: scale-color($cm-red1, $lightness: 20%) !default;
+$cm-red3: scale-color($cm-red2, $lightness: 20%) !default;
+$cm-red4: scale-color($cm-red3, $lightness: 20%) !default;
+
+$cm-yellow1: #f2d600 !default;
+
+$vars: (
+    green1: $cm-green1,
+    green2: $cm-green2,
+    green3: $cm-green3,
+    font-color-dark: $cm-font-color-dark,
+    blue1: $cm-blue1,
+    blue2: $cm-blue2,
+    blue3: $cm-blue3,
+);
+
+/* Spacing */
+$cm-space: (
+    xs: 4px,
+    sm: 8px,
+    md: 12px,
+    lg: 24px,
+    xl: 48px,
+    xxl: 96px
+) !default;
+
+/* Breakpoints */
+$cm-desktop: 1024px !default;
+$cm-mobile: 384px !default;
+$cm-tablet: 768px !default;
+
+@mixin var($property, $varName) {
+    #{$property}: map-get($vars, $varName);
+    #{$property}: var(--#{$varName}, map-get($vars, $varName));
+}
+
+/*
+Copy from klaro/src/scss/switch.scss
+*/
+
+/* The switch - the box around the slider */
+
+.cm-switch-container {
+    display: block;
+    position: relative;
+    padding: 10px;
+    padding-left: 66px;
+    line-height: 20px;
+    vertical-align: middle;
+    min-height: 40px;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+.cm-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+}
+
+.cm-list-input:checked + .cm-list-label .slider {
+    @include var(background-color, green1);
+}
+
+.cm-list-input.half-checked:checked + .cm-list-label .slider {
+    @include var(background-color, green1);
+    opacity: 0.6;
+
+    &::before {
+        -webkit-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+}
+
+.cm-list-input.only-required + .cm-list-label .slider {
+    @include var(background-color, green2);
+    opacity: 0.8;
+
+    &::before {
+        -webkit-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+}
+
+.cm-list-input.required:checked + .cm-list-label .slider {
+    @include var(background-color, green2);
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.slider {
+    box-shadow: $cm-box-shadow-dark-md;
+}
+
+.cm-list-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 50px;
+    height: 30px;
+}
+
+.cm-list-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cm-list-description {
+    font-size: 14px;
+    padding-top: 4px;
+    color: #666;
+}
+
+.cm-list-label {
+    /* The slider */
+
+    .cm-switch {
+        position: absolute;
+        left: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        width: 50px;
+        display: inline-block;
+    }
+
+    .slider::before {
+        position: absolute;
+        content: '';
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        bottom: 5px;
+        background-color: #fff;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 30px;
+    }
+
+    .slider.round::before {
+        border-radius: 50%;
+    }
+
+    input:focus + .slider {
+        @include var(box-shadow-color, green3);
+        box-shadow: 0 0 1px $cm-green3;
+    }
+
+    input:checked + .slider::before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+}
+
+.cm-list-input:focus + .cm-list-label .slider {
+    box-shadow: 0 4px 6px 0 rgba(125, 125, 125, 0.2),
+    5px 5px 10px 0 rgba(125, 125, 125, 0.19);
+}
+
+.cm-list-input:checked + .cm-list-label .slider::before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+
+/*
+Modified from klaro/src/scss/klaro.scss
+*/
 $vars: (
     green1: $primary,
     green2: $primary,
@@ -85,8 +313,6 @@ $cm-background: $dark !default;
     $btn-margin-right: 0.5em;
 
     .cookie-modal, .cookie-notice {
-
-        @import '~klaro/src/scss/switch';
 
         .cm-list-input.required:checked + .cm-list-label .slider {
             opacity: .5;
