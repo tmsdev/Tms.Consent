@@ -3,13 +3,13 @@
 	<file original="" product-name="Tms.Consent" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="consentSettingsButton" xml:space="preserve">
-				<source>Consent settings</source>
+				<source>Privacy settings</source>
 			</trans-unit>
             <trans-unit id="noConsentPlaceholder.contentBlocked" xml:space="preserve">
-				<source>content blocked</source>
+				<source>content is currently not displayed for data privacy reasons.</source>
 			</trans-unit>
-            <trans-unit id="noConsentPlaceholder.reviewSettings" xml:space="preserve">
-				<source>review your consent settings</source>
+            <trans-unit id="noConsentPlaceholder.consentButton" xml:space="preserve">
+				<source>Allow content of this type</source>
 			</trans-unit>
 		</body>
 	</file>

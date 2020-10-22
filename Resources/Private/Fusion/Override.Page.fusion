@@ -20,17 +20,6 @@ prototype(Neos.Neos:Page) {
             config = Tms.Consent:Klaro.Config
             config.@if.autoIncludeConfig = ${Configuration.setting('Tms.Consent.autoInclude.config')}
 
-            bundle = Neos.Fusion:Tag {
-                @if.autoIncludeScripts = ${Configuration.setting('Tms.Consent.autoInclude.scripts')}
-                tagName = 'script'
-                attributes {
-                    defer = true
-                    src = Neos.Fusion:ResourceUri {
-                        path = 'resource://Tms.Consent/Public/JavaScript/main.bundle.js'
-                    }
-                }
-            }
-
             noBundle = Neos.Fusion:Tag {
                 @if.autoIncludeScripts = ${Configuration.setting('Tms.Consent.autoInclude.scripts')}
                 tagName = 'script'
@@ -38,6 +27,18 @@ prototype(Neos.Neos:Page) {
                     defer = true
                     src = Neos.Fusion:ResourceUri {
                         path = 'resource://Tms.Consent/Public/JavaScript/NoConsentPlaceholder.js'
+                    }
+                }
+            }
+
+            bundle = Neos.Fusion:Tag {
+                @if.autoIncludeScripts = ${Configuration.setting('Tms.Consent.autoInclude.scripts')}
+                @position = 'after noBundle'
+                tagName = 'script'
+                attributes {
+                    defer = true
+                    src = Neos.Fusion:ResourceUri {
+                        path = 'resource://Tms.Consent/Public/JavaScript/main.bundle.js'
                     }
                 }
             }

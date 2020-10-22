@@ -5,5 +5,5 @@ prototype(Flowpack.Neos.Matomo:TrackingCode) {
         type = 'text/javascript'
     }
     # Used to disable the <noscript> fallback if consent is enabled
-    consentEnabled = ${Configuration.setting('Tms.Consent.config.apps.matomo.enabled')}
+    consentEnabled = ${Configuration.setting('Tms.Consent.config.services.matomo.enabled')}
 }

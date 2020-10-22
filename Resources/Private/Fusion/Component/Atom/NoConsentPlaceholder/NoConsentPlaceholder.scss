@@ -15,6 +15,17 @@
         display: block;
     }
 
+    button[data-consent-button="true"] {
+        border: none;
+        background: white;
+        padding: .25rem .5rem;
+        outline: none;
+
+        &:hover {
+            background: rgba(white, .9);
+        }
+    }
+
     img {
         max-width: 66%;
         height: auto;

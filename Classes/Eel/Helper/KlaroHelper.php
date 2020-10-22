@@ -7,28 +7,28 @@ use Neos\Eel\ProtectedContextAwareInterface;
 class KlaroHelper implements ProtectedContextAwareInterface
 {
     /**
-     * Build apps config
+     * Build services config
      *
      * @param array $apps
      * @return array
      */
-    public function buildAppsConfig(array $apps) {
+    public function buildServicesConfig(array $services) {
 
         // Remove disabled apps and set default position
-        $appsConfig = [];
-        foreach ($apps as $appName => $appSettings) {
-            if (isset($appSettings['enabled']) && $appSettings['enabled'] === true) {
-                $appSettings['klaro']['position'] = isset($appSettings['position']) ? $appSettings['position'] : 0;
-                $appsConfig[] = $appSettings['klaro'];
+        $servicesConfig = [];
+        foreach ($services as $serviceName => $serviceSettings) {
+            if (isset($serviceSettings['enabled']) && $serviceSettings['enabled'] === true) {
+                $serviceSettings['klaro']['position'] = isset($serviceSettings['position']) ? $serviceSettings['position'] : 0;
+                $servicesConfig[] = $serviceSettings['klaro'];
             }
         }
 
         // Sort by position key
-        usort($appsConfig, function ($app1, $app2) {
-            return $app1['position'] <=> $app2['position'];
+        usort($servicesConfig, function ($service1, $service2) {
+            return $service1['position'] <=> $service2['position'];
         });
 
-        return $appsConfig;
+        return $servicesConfig;
     }
 
     /**

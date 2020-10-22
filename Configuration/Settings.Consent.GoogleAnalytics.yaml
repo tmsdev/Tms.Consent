@@ -10,7 +10,7 @@ Tms:
           googleAnalytics:
             description: 'Allows us to analyse website usage anonymously (e.g. pageviews, channels, devices, screen resolutions, etc.)'
 
-      apps:
+      services:
         googleAnalytics:
           enabled: false
 

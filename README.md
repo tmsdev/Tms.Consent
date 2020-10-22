@@ -6,8 +6,6 @@ Let your users decide, which scripts should be loaded and executed while visitin
 
 ---
 
-**!!! This is currently experimental code, please do not rely on any parts yet.**
-
 **IMPORTANT: We are developers, no lawyers. Using this package without further adaptation will most likely NOT result in GDPR, ePrivacy nor CCPA compliance!**
 
 ---
@@ -18,11 +16,20 @@ Let your users decide, which scripts should be loaded and executed while visitin
 composer require tms/consent
 ```
 
+## What's included?
+
+* Klaro Script + opinionated Klaro Config (override or use your own anytime)
+* Klaro Config editing via `Settings.yaml` & predefined services
+* Klaro default styles & themes [`/Resources/Private/Styles/Theme`](https://github.com/tmsdev/Tms.Consent/tree/master/Resources/Private/Styles/Theme)
+* Placeholder for blocked content elements (Fusion Component + JS)
+* Consent settings button (Fusion Component + JS)
+* Overrides for common Neos packages [`/Resources/Private/Fusion/PresetPackages`](https://github.com/tmsdev/Tms.Consent/tree/master/Resources/Private/Fusion/PresetPackages)
+
 ## Usage
 
-### Step 1: App configuration via `YAML` settings
+### Step 1: Service configuration via `YAML` settings
 
-This package includes default consent management settings for these apps
+This package includes default consent management settings for the following services. Enable them in your `Settings.yaml` or add your own services.
 
 * Cloudflare
 * Matomo
@@ -31,22 +38,25 @@ This package includes default consent management settings for these apps
 * Youtube
 
 ```yaml
-# Example configuration
+# Example Tms.Consent configuration
 Tms:
   Consent:
     config:
       # The privacy policy uri can be specified by node type, path, identifier or simply an absolute/relative link
       privacyPolicy: '#4999814e-61c2-4ce1-ab46-c1145f2285d7'
       
-      # Enable the apps you need consent management for
-      apps:
+      # Enable the services you need consent management for
+      services:
         matomo:
           enabled: true
+          # Use the position key to render services in your favorite order
+          position: 100
         youtube:
           enabled: true
+          position: 200
 ```
 
-#### Extend your apps
+#### Extend your services
 
 Simply extend the `YAML` settings within your Neos package.
 
@@ -54,37 +64,37 @@ Simply extend the `YAML` settings within your Neos package.
 Tms:
   Consent:
     config:
-      apps:
-        yourAppName:
+      services:
+        yourServiceName:
           enabled: true
 
           # -----------------------------------------------------------------
           # Klaro! Config
           # -----------------------------------------------------------------
           klaro:
-            name: yourAppName
-            title: 'Your App Title'
-            description: 'Short description, why your website use the app...'
+            name: yourServiceName
+            title: 'Your Service Title'
+            description: 'Short description, why your website use this service...'
             purposes: ['functionality']
 ```
 
-Think your app configuration is useful for others too?
-Don't hesitate to submit a PR. All the app related configuration should be combined in one settings
-file named like `Settings.Consent.YourAppName.yaml`.
+Think your service configuration is useful for others too?
+Don't hesitate to submit a PR. All the service related configuration should be combined in one settings
+file named like `Settings.Consent.YourServiceName.yaml`.
 
 ### Step 2: Modify HTML
 
-In order to control your configured apps (e.g. to stop loading and/or execution without consent) it is necessary to
+In order to control your configured services (e.g. to stop loading and/or execution without consent) it is necessary to
 modify the resulting HTML of your webpages.
 
 This can be achieved by simply replacing some attributes - see https://github.com/KIProtect/klaro#managing-third-party-appstrackers
 
 We try to provide preconfigured solutions for some common Neos packages, please have a look at [`/Resources/Private/Fusion/PresetPackages`](https://github.com/tmsdev/Tms.Consent/tree/master/Resources/Private/Fusion/PresetPackages)
-what we've already covered. Your package is missing? Submit a PR, if you think the app configuration could be useful for others.
+what we've already covered. Your package is missing? Submit a PR, if you think the service configuration could be useful for others.
 
 ### Step 3: Verify
 
-Check your site - have you blocked all your critical apps?
+Check your site - have you blocked all your critical services?
 
 * by using the dev tools of your favorite browser
 * or simply run a check on https://webbkoll.dataskydd.net/
@@ -92,13 +102,8 @@ Check your site - have you blocked all your critical apps?
 ## Wishlist
 
 * Add multi-site support
-* Make it work with lazyloaded elements
-* Make apps sortable
-* Placeholder for blocked content elements (like Youtube, Maps, etc.)
-* Support more apps by default
 * Backend module with some basic statistics on acceptance rate
 * User location based configurations
-* Additional layouts & styles
 
 Any feedback, pull request or other contribution is very welcome!
 

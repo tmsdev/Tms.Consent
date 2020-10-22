@@ -3,14 +3,27 @@ Tms:
     config:
       translations:
         de:
+          # See default DE translation - https://github.com/kiprotect/klaro/blob/master/src/translations/de.yml
           consentNotice:
             learnMore: 'Anpassen'
 
-          acceptAll: 'Alle Anwendungen akzeptieren'
+          decline: 'Ablehnen'
+          ok: 'Alle Dienste akzeptieren'
           acceptSelected: 'Auswahl speichern'
 
           purposes:
-            performance: 'Sicherheit & Performance'
-            functionality: 'Funktionalität'
-            analytics: 'Webstatistik'
-            targeting: 'Anzeigen von Werbung'
+            performance:
+              title: 'Sicherheit und Performance'
+              description: ''
+            functionality:
+              title: 'Funktionalität'
+              description: ''
+            content:
+              title: 'Externe Inhalte'
+              description: ''
+            analytics:
+              title: 'Webanalyse'
+              description: ''
+            marketing:
+              title: 'Marketing'
+              description: ''

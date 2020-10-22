@@ -1,15 +1,15 @@
-function toggleNoConsentPlaceholders(consent, app) {
-    if (app === undefined)
+function toggleNoConsentPlaceholders(consent, service) {
+    if (service === undefined)
         return;
 
-    var appName = app.name;
-    var appConsent = consent;
+    var serviceName = service.name;
+    var serviceConsent = consent;
 
     document.querySelectorAll('.tms-consent_no-consent-placeholder').forEach(item => {
-        if (appName !== item.dataset.name)
+        if (serviceName !== item.dataset.name)
             return;
 
-        if (appConsent === false) {
+        if (serviceConsent === false) {
             item.classList.add('consent-needed');
         } else {
             item.classList.remove('consent-needed');

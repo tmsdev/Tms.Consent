@@ -6,10 +6,10 @@
 				<source>Datenschutz Einstellungen</source>
 			</trans-unit>
             <trans-unit id="noConsentPlaceholder.contentBlocked" xml:space="preserve">
-				<source>Inhalte blockiert</source>
+				<source>Inhalte werden derzeit aus Datenschutzgründen nicht angezeigt.</source>
 			</trans-unit>
-            <trans-unit id="noConsentPlaceholder.reviewSettings" xml:space="preserve">
-				<source>jetzt Datenschutz Einstellungen anpassen</source>
+            <trans-unit id="noConsentPlaceholder.consentButton" xml:space="preserve">
+				<source>Inhalte dieser Art erlauben</source>
 			</trans-unit>
 		</body>
 	</file>

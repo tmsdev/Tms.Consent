@@ -11,10 +11,12 @@ Tms:
   Consent:
     enabled: true
 
+    # Disable includes if you use your own or want to add them to your favorite build tool
     autoInclude:
       config: true
       scripts: true
       styles: true
+
 
     enableStickyConsentSettingsButton: true
 
@@ -26,8 +28,8 @@ Tms:
       privacyPolicy: ''
 
       # Find all general translations in setting files, separated by language - see 'Settings.Translations.De.yaml'
-      # App related translations should be within each app setting file - see 'Settings.Apps.Matomo.yaml'
+      # App related translations should be within each app setting file - see 'Settings.Consent.Matomo.yaml'
       translations: []
 
-      # Find individual app configurations in separated setting files
-      apps: []
+      # Find individual service configurations in separated setting files
+      services: []

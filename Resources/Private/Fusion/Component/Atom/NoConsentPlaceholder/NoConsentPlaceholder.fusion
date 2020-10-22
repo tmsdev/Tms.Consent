@@ -1,18 +1,19 @@
 prototype(Tms.Consent:Component.Atom.NoConsentPlaceholder) < prototype(Neos.Fusion:Component) {
     @if.consentEnabled = ${Configuration.setting('Tms.Consent.enabled')}
-    @if.appConfiguredAndEnabled = ${this.appName && Configuration.setting('Tms.Consent.config.apps.' + this.appName + '.enabled')}
+    @if.serviceConfiguredAndEnabled = ${this.serviceName && Configuration.setting('Tms.Consent.config.services.' + this.serviceName + '.enabled')}
 
-    appName = ''
+    serviceName = ''
     imageUri = ''
 
     i18nContentBlocked = ${Translation.translate('noConsentPlaceholder.contentBlocked', 'content blocked', [], null, 'Tms.Consent')}
-    i18nReviewSettings = ${Translation.translate('noConsentPlaceholder.reviewSettings', 'review your consent settings', [], null, 'Tms.Consent')}
+    i18nConsentButton = ${Translation.translate('noConsentPlaceholder.consentButton', 'Show this content', [], null, 'Tms.Consent')}
 
     renderer = afx`
-        <div class="tms-consent_no-consent-placeholder" data-name={props.appName}>
+        <div class="tms-consent_no-consent-placeholder" data-name={props.serviceName}>
             <p>
-                <span data-klaro-app-title={props.appName}>{props.appName}</span> {props.i18nContentBlocked} - <a href="#" onclick="return klaro.show();">{props.i18nReviewSettings}</a>
+                <span data-klaro-service-title={props.serviceName}>{props.serviceName}</span> {props.i18nContentBlocked}
             </p>
+            <button data-consent-button="true" data-name={props.serviceName}>{props.i18nConsentButton}</button>
             <img @if.hasImage={props.imageUri} src={props.imageUri} alt="" loading="lazy" />
         </div>
     `

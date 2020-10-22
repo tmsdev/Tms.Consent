@@ -10,7 +10,7 @@ Tms:
           cloudflare:
             description: 'Protects us from attackers and helps to distribute our content quickly worldwide.'
 
-      apps:
+      services:
         cloudflare:
           enabled: false
 

@@ -1,8 +1,8 @@
 prototype(Tms.Consent:Klaro.ConsentAttributes) < prototype(Neos.Fusion:Component) {
     @if.consentEnabled = ${Configuration.setting('Tms.Consent.enabled')}
-    @if.appConfiguredAndEnabled = ${this.name && Configuration.setting('Tms.Consent.config.apps.' + this.name + '.enabled')}
+    @if.serviceConfiguredAndEnabled = ${this.name && Configuration.setting('Tms.Consent.config.services.' + this.name + '.enabled')}
 
-    # The app name used in your yaml configuration
+    # The service name used in your yaml configuration
     name = ''
     type = null
     src = null
