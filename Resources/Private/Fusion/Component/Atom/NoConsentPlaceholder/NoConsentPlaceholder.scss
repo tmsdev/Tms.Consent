@@ -7,27 +7,36 @@
     z-index: 1;
     background: black;
     color: white;
-    padding: 2rem;
     overflow: hidden;
-
+    padding: 1rem;
+    font-size: 80%;
     display: none;
     &.consent-needed {
         display: block;
     }
-
+    p {
+        margin-bottom: 1rem;
+    }
     button[data-consent-button="true"] {
         border: none;
         background: white;
         padding: .25rem .5rem;
+        margin-bottom: 1rem;
         outline: none;
-
         &:hover {
             background: rgba(white, .9);
         }
     }
-
     img {
-        max-width: 66%;
+        max-width: 50%;
         height: auto;
+    }
+    @media (min-width: 576px) {
+        padding: 2rem;
+        font-size: 100%;
+
+        img {
+            max-width: 66%;
+        }
     }
 }

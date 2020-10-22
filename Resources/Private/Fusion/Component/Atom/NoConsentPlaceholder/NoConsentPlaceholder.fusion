@@ -4,6 +4,7 @@ prototype(Tms.Consent:Component.Atom.NoConsentPlaceholder) < prototype(Neos.Fusi
 
     serviceName = ''
     imageUri = ''
+    imageAlternativeText = ''
 
     i18nContentBlocked = ${Translation.translate('noConsentPlaceholder.contentBlocked', 'content blocked', [], null, 'Tms.Consent')}
     i18nConsentButton = ${Translation.translate('noConsentPlaceholder.consentButton', 'Show this content', [], null, 'Tms.Consent')}
@@ -14,7 +15,9 @@ prototype(Tms.Consent:Component.Atom.NoConsentPlaceholder) < prototype(Neos.Fusi
                 <span data-klaro-service-title={props.serviceName}>{props.serviceName}</span> {props.i18nContentBlocked}
             </p>
             <button data-consent-button="true" data-name={props.serviceName}>{props.i18nConsentButton}</button>
-            <img @if.hasImage={props.imageUri} src={props.imageUri} alt="" loading="lazy" />
+            <div @if.hasImage={props.imageUri}>
+                <img src={props.imageUri} alt={props.imageAlternativeText} loading="lazy" />
+            </div>
         </div>
     `
 }
