@@ -99,6 +99,21 @@ Check your site - have you blocked all your critical services?
 * by using the dev tools of your favorite browser
 * or simply run a check on https://webbkoll.dataskydd.net/
 
+### (Optional) Step 4: Better UX for blocked content elements
+
+This is an example how to use the Fusion Component for a Youtube + Bootstrap markup.
+
+```
+prototype(Your.Package:Component.Atom.Youtube) < prototype(Neos.Fusion:Component) {
+    renderer = afx`
+        <div class="embed-responsive embed-responsive-16by9">
+            <Tms.Consent:Component.Atom.NoConsentPlaceholder serviceName="youtube" imageUri="" />
+            <iframe src="about:blank" data-name="youtube" data-src="https://www.youtube-nocookie.com/embed/4DVD03IlXIs?wmode=transparent&amp;autoplay=&amp;controls=1&amp;rel=&amp;showinfo=" class="embed-responsive-item" loading="lazy" allowfullscreen="1"></iframe>
+        </div>
+    `
+}
+```
+
 ## Wishlist
 
 * Add multi-site support
