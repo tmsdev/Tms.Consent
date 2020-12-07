@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", getKlaroServiceTitles);
 
 let tmsConsentButtons = document.querySelectorAll('[data-consent-button]');
 Array.prototype.forEach.call(tmsConsentButtons, function (tmsConsentButton) {
-    tmsConsentButton.addEventListener('click', event => {
+    tmsConsentButton.addEventListener('click', function(event) {
         event.preventDefault();
         let serviceName = tmsConsentButton.getAttribute('data-name');
         if (serviceName) {
