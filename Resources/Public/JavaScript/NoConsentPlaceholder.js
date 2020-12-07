@@ -5,14 +5,15 @@ function toggleNoConsentPlaceholders(consent, service) {
     var serviceName = service.name;
     var serviceConsent = consent;
 
-    document.querySelectorAll('.tms-consent_no-consent-placeholder').forEach(item => {
-        if (serviceName !== item.dataset.name)
+    let noConsentPlaceholders = document.querySelectorAll('.tms-consent_no-consent-placeholder');
+    Array.prototype.forEach.call(noConsentPlaceholders, function (noConsentPlaceholder) {
+        if (serviceName !== noConsentPlaceholder.dataset.name)
             return;
 
         if (serviceConsent === false) {
-            item.classList.add('consent-needed');
+            noConsentPlaceholder.classList.add('consent-needed');
         } else {
-            item.classList.remove('consent-needed');
+            noConsentPlaceholder.classList.remove('consent-needed');
         }
     });
 }

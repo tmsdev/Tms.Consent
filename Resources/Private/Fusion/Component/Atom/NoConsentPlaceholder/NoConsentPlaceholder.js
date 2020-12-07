@@ -1,19 +1,21 @@
 function getKlaroServiceTitles() {
     let services = klaro.getManager().config.services;
-    document.querySelectorAll('[data-klaro-service-title]').forEach(item => {
+    let serviceTitlePlaceholders = document.querySelectorAll('[data-klaro-service-title]');
+    Array.prototype.forEach.call(serviceTitlePlaceholders, function (serviceTitlePlaceholder) {
         for (var i=0; i < services.length; i++) {
-            if (services[i].name === item.getAttribute('data-klaro-service-title')) {
-                item.innerHTML = services[i].title;
+            if (services[i].name === serviceTitlePlaceholder.getAttribute('data-klaro-service-title')) {
+                serviceTitlePlaceholder.innerHTML = services[i].title;
             }
         }
     });
 }
 document.addEventListener("DOMContentLoaded", getKlaroServiceTitles);
 
-document.querySelectorAll('[data-consent-button]').forEach(item => {
-    item.addEventListener('click', event => {
+let tmsConsentButtons = document.querySelectorAll('[data-consent-button]');
+Array.prototype.forEach.call(tmsConsentButtons, function (tmsConsentButton) {
+    tmsConsentButton.addEventListener('click', event => {
         event.preventDefault();
-        let serviceName = item.getAttribute('data-name');
+        let serviceName = tmsConsentButton.getAttribute('data-name');
         if (serviceName) {
             let manager = klaro.getManager();
             manager.updateConsent(serviceName, true)
